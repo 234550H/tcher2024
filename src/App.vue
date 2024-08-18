@@ -93,9 +93,9 @@ onMounted(() => {
         <img src="./assets/images/profile/team.jpg" alt="Team Photo" class="team-photo" />
         <h2>About Us</h2>
         <h3>Hello Teachers!!</h3>
-<p>Time files and it has been 4 years since we graduate in 2020! Your lovely good 4NT kids! </p>
-<p>I am sure sometimes you may wonder how have we been, how are we coping in the tertiary education, what is next, where are we right? </p>
-<p>So let the author of this website give you some little stories of each of us!</p>
+<p>Time files and it has been 4 years since we graduate in 2020! Your lovely good 4NT kids! 
+I am sure sometimes you may wonder how have we been, how are we coping in the tertiary education, what is next, where are we right? 
+So let the author of this website give you some little stories of each of us!</p>
 <h3>Yang Zhe & Renee</h3>
 <p>Both of them are currently in higher nitec 2 years and soon to complete before moving to poly! Coping their best to achieving and maintaining 3.0+ gpa.</p>
 <h3>Hui Xin , Ryan & Qi Fang</h3>
