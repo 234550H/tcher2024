@@ -438,9 +438,9 @@ h1 {
 
   /* Position buttons relative to the screen width */
   .mute-toggle, .about-us-toggle {
-    width: calc(30% - 80px); /* Full width minus margin */
+    width: calc(35% - 80px); /* Full width minus margin */
     padding: 12px;
-    font-size: 16px;
+    font-size: 10px;
     position: fixed;
     right: 20px;
     border-radius: 10px;
@@ -454,19 +454,18 @@ h1 {
     bottom: 80px; /* Positioned above the mute-toggle */
   }
 
-
   .modal-content {
     width: 90%; /* Adjust width to fit smaller screens */
     max-width: none; /* Remove max-width on small screens */
     padding: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow-y: auto; /* Allow scrolling inside the modal */
+    position: relative; /* Ensure correct positioning */
   }
 
   /* Ensure body can scroll */
-  body {
-    overflow-y: auto; /* Allow vertical scrolling */
-    margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
+  body.modal-open {
+    overflow: hidden; /* Prevent body scroll when modal is open */
   }
 
   /* Ensure content area doesn't overlap fixed elements */
@@ -498,6 +497,5 @@ h1 {
     font-size: 48px; /* Adjust font size for smaller screens */
   }
 }
-
 
 </style>
