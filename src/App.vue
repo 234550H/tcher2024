@@ -139,7 +139,7 @@ Although we may not contact you and talk due to our busy schedules but we defini
 <span class="animated-special">Love you all ♡</span>
 <br>
 <br>
-        <button @click="toggleAboutUs">Close</button>
+        <button class="close-button"  @click="toggleAboutUs">X</button>
       </div>
     </div>
   </div>
@@ -380,6 +380,43 @@ h1 {
   max-height: 90vh; /* Maximum height of the modal */
   overflow-y: auto; /* Enable vertical scrolling if needed */
 }
+
+/* Close Button Styling */
+.close-button {
+  position: absolute;
+  top: 40px;
+  right: 480px;
+  width: 30px; /* Larger width for better touch targets */
+  height: 30px; /* Larger height for better touch targets */
+  background-color: #025a0e; /* Color for visibility */
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px; /* Increase font size */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+
+
+.close-button:focus {
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  .close-button {
+    width: 40px; /* Increase size for mobile devices */
+    height: 40px;
+    font-size: 24px; /* Increase font size for better visibility */
+right: 10px;
+top:10px;
+  }
+}
+
 
 .colorful-border {
   border: 5px solid;
