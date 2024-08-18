@@ -48,6 +48,8 @@ import photo6 from '../assets/images/4T1/ph5.jpg'
 import ryan from '../assets/images/profile/ryan.jpeg'
 import Hx from '../assets/images/profile/huixin.jpeg'
 import renee from '../assets/images/profile/renee.jpeg'
+import yz from '../assets/images/profile/yz.jpeg'
+import qf from '../assets/images/profile/qf.jpg'
 
 import koh1 from '../assets/images/Mskoh/ph1.jpg'
 import koh2 from '../assets/images/Mskoh/ph2.jpg'
@@ -91,7 +93,7 @@ const profilePlaceholders = ref([
   {
     image: ryan,
     message: 'Message - Ryan',
-    profileMessage: 'This is a special message for Ryan.'
+    profileMessage: 'Hello! I remember the times where i needed help with my subjects,i will ask questions.Thank you for being my teacher and i am happy to have you as my teacher given all the wonderful memories in class that had happened! Stay Safe ,Stay strong & 我爱你 Happy teachers day!!'
   },
   {
     image: Hx,
@@ -101,17 +103,17 @@ const profilePlaceholders = ref([
   {
     image: renee,
     message: 'Message - Renee',
-    profileMessage: 'Dear Renee, your support and kindness have not gone unnoticed. Thank you for all that you do!'
+    profileMessage: 'Hello! 👋 Happy Teachers Day! Even though its been nearly four years since you last taught us, thank you for being a teacher to me and our rowdy/chaotic class, haha. And just know that not only me but us, students will always remember the effort you put in to guide us in many ways other than teaching and will treasure the memories you created with us. Once again, thank you so much! And I wish you a very Happy Teachers Day!! (≧▽≦)🙌✨'
   },
   {
-    image: '../assets/images/gift.png',
+    image: yz,
     message: 'Message - Yang Zhe',
-    profileMessage: 'Yang Zhe, your contribution and positivity have made a difference. We appreciate you!'
+    profileMessage: 'Happy teachers day !! Its been a long time since we have last met :D, just wanted to say thank you for making the lessons more fun and engaging, wishing you a year ahead full of happiness and achievement ^^/'
   },
   {
-    image: '../assets/images/gift.png',
+    image: qf,
     message: 'Message - Qi Fang',
-    profileMessage: 'Qi Fang, thank you for your effort and enthusiasm. It truly makes an impact!'
+    profileMessage: 'Hello!! Certainly time flies! Sometimes we will recall all the funny and how we sleep in class during your lessons ! Haha. But those were the most enjoyable lessons that we have than current lessons that we have. Continue to stay in contact! And happy teachers day 🫡💐 Stay passionate for teaching, the journey is certainly not easy,Happy teachers day!'
   }
 ])
 
@@ -271,6 +273,39 @@ font-weight: 600;
 }
 
 /* Responsive styles */
+/* Container styles */
+.photo-lane-container {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  margin: 70px auto 0; /* Adjust margin to provide space from the top */
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: auto;
+  overflow: auto; /* Allow scrolling if content overflows */
+}
+
+/* Ensure body and html can scroll */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: auto; /* Allow scrolling */
+}
+
+/* Special message container styles */
+.special-message-container {
+  margin-top: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+/* Responsive styles */
 @media (max-width: 768px) {
   .photo-lane {
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -279,6 +314,29 @@ font-weight: 600;
   .profile-img {
     width: 70px; /* Adjust size for mobile */
     height: 70px; /* Adjust size for mobile */
+  }
+
+  /* Position buttons below the photo-lane content */
+  .mute-toggle, .about-us-toggle {
+    width: calc(60% - 30px); /* Full width minus margin */
+    padding: 12px;
+    font-size: 16px;
+    position: fixed; /* Fixed positioning for visibility */
+    right: 20px;
+    border-radius: 10px;
+    z-index: 1000; /* Ensure buttons are above other content */
+  }
+
+  .about-us-toggle {
+    bottom: 120px; /* Positioned above the mute-toggle */
+    background-color: #a90000;
+    color: white;
+  }
+
+  .mute-toggle {
+    bottom: 60px; /* Positioned at the bottom of the viewport */
+    background-color: #a90000;
+    color: white;
   }
 }
 
@@ -341,5 +399,6 @@ font-weight: 600;
     border-color: #00aaff;
   }
 }
+
 
 </style>
