@@ -438,7 +438,7 @@ h1 {
 
   /* Position buttons relative to the screen width */
   .mute-toggle, .about-us-toggle {
-    width: calc(60% - 80px); /* Full width minus margin */
+    width: calc(30% - 80px); /* Full width minus margin */
     padding: 12px;
     font-size: 16px;
     position: fixed;
@@ -454,9 +454,6 @@ h1 {
     bottom: 80px; /* Positioned above the mute-toggle */
   }
 
-  .mute-toggle {
-    bottom: 20px; /* Positioned above the footer */
-  }
 
   .modal-content {
     width: 90%; /* Adjust width to fit smaller screens */
