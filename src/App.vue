@@ -60,7 +60,7 @@ onMounted(() => {
 
 <template>
   <div class="memory-background">
-    <h1 style="color: white; text-align: center;">Teacher's Special Gift 2024</h1>
+    <h1 :class="{ 'hidden-title': showCover }">Teacher's Special Gift 2024</h1>
     <div class="photo-frame-container" v-if="buttonVisible" @click="handleLogoClick">
       <div class="photo-frame" :class="{ 'clicked': logoClicked }">
         <div class="chalkboard">
@@ -77,9 +77,9 @@ onMounted(() => {
     </div>
     <PhotoLane v-if="showCover" :photoSet="userName" />
     <footer class="footer">
-      <b style="font-size: 15px;">Coded by Qi Fang</b>
+      <b>Coded by Qi Fang</b>
       <br>
-      <b style="font-size: 15px;">Behalf of (Hui Xin, Renee, Yang Zhe, Ryan)</b>
+      <b>Behalf of (Hui Xin, Renee, Yang Zhe, Ryan)</b>
     </footer>
     <button class="mute-toggle" @click="toggleMute">
       {{ isMuted ? 'Unmute' : 'Mute' }}
@@ -88,7 +88,7 @@ onMounted(() => {
 </template>
 
 <style scoped>
-/* Background styling for different devices */
+/* Global Styles */
 .memory-background {
   width: 100vw;
   height: 100vh;
@@ -98,13 +98,13 @@ onMounted(() => {
   align-items: center;
   position: relative;
   overflow: hidden;
-  background-color: black; /* Set background color to black */
+  background-color: black;
 }
 
 /* Title Styling */
 h1 {
   position: absolute;
-  top: 5%; /* Position it higher on the page */
+  top: 5%;
   color: white;
   text-align: center;
   width: 100%;
@@ -113,7 +113,7 @@ h1 {
 
 .hidden-title {
   opacity: 0;
-  transform: translateY(-50px); /* Move it up smoothly when hidden */
+  transform: translateY(-50px);
 }
 
 /* Photo Frame Styling */
@@ -125,10 +125,10 @@ h1 {
 }
 
 .photo-frame {
-  width: 150px; /* Adjust size for the star icon */
+  width: 150px;
   height: 150px;
-  background: transparent; /* No background */
-  border-radius: 50%; /* Make it circular */
+  background: transparent;
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -137,26 +137,26 @@ h1 {
 }
 
 .photo-frame-container:hover .photo-frame {
-  box-shadow: 0 0 15px rgba(192, 2, 97, 0.6); /* Glowing effect for the circle on hover */
+  box-shadow: 0 0 15px rgba(192, 2, 97, 0.6);
 }
 
 .chalkboard {
-  width: 100px; /* Smaller size for the star icon */
+  width: 100px;
   height: 100px;
-  background: transparent; /* No background */
+  background: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: gold; /* Default color for the star */
-  font-size: 64px; /* Larger font size for the star icon */
+  color: gold;
+  font-size: 64px;
   text-align: center;
-  transition: color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for color and glow */
-  box-shadow: 0 0 20px gold; /* Glowing effect for the star */
+  transition: color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 20px gold;
 }
 
 .photo-frame-container:hover .chalkboard {
-  color: #ff5722; /* Change star color on hover */
-  box-shadow: 0 0 30px #ff5722; /* Increase the glow effect on hover */
+  color: #ff5722;
+  box-shadow: 0 0 30px #ff5722;
 }
 
 .photo-frame.clicked {
@@ -177,10 +177,10 @@ h1 {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: #fff; /* White background for input box */
+  background: #fff;
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .name-prompt input {
@@ -188,7 +188,7 @@ h1 {
   font-size: 18px;
   border: 2px solid #ccc;
   border-radius: 8px;
-  width: 250px; /* Adjust width as needed */
+  width: 250px;
 }
 
 .name-prompt button {
@@ -196,78 +196,202 @@ h1 {
   font-size: 18px;
   border: none;
   border-radius: 8px;
-  background-color: #000000; /* Background color for the button */
+  background-color: #000;
   color: white;
   cursor: pointer;
-  font-family: 'Dancing Script', cursive; /* Updated cursive font */
+  font-family: 'Dancing Script', cursive;
 }
 
 .name-prompt button:hover {
-  background-color: #dbb131; /* Darker shade for hover effect */
+  background-color: #dbb131;
 }
 
 /* Error Message Styling */
 .error-message {
-  color: red; /* Red color for error text */
-  font-size: 17px; /* Smaller font size */
-  margin-top: 10px; /* Slight adjustment for spacing */
+  color: red;
+  font-size: 17px;
+  margin-top: 10px;
 }
 
 /* Footer Styling */
 .footer {
-  position: absolute;
-  bottom: 20px; /* Move the footer up by 60px */
-  left: 80%;
-  transform: translateX(-50%);
-  text-align: left;
-  padding: 5px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 15px;
   color: white;
-  font-size: 12px;
-  font-family: 'Dancing Script', cursive;
-  background-color: rgba(10, 14, 231, 0.8);
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.mute-toggle {
-  position: absolute;
-  bottom: 50px;
-  left: 10px;
-  padding: 10px 20px;
-  background-color: #000;
-  color: #fff;
-  border: 2px solid;
-  border-radius: 8px;
-  cursor: pointer;
   font-size: 16px;
   font-family: 'Dancing Script', cursive;
+  background: linear-gradient(135deg, rgba(0,0,0,0.8), rgba(0,0,0,0.6));
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  width: 80%;
+  max-width: 300px;
+  z-index: 1000;
+  text-align: left;
+}
+
+/* Mute Toggle Button */
+.mute-toggle {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ffffff;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Dancing Script', cursive;
+  font-size: 16px;
 }
 
 .mute-toggle:hover {
-  background-color: #333;
+  background-color: #f0f0f0;
 }
 
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .photo-frame {
+    width: 130px;
+    height: 130px;
+  }
+
+  .chalkboard {
+    width: 90px;
+    height: 90px;
+    font-size: 56px;
+  }
+
+  .name-prompt {
+    width: 70%;
+    padding: 15px;
+  }
+
+  .name-prompt input {
+    width: 220px;
+  }
+
+  .name-prompt button {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+
+  .footer {
+    font-size: 14px;
+    padding: 12px;
+    width: 75%;
+  }
+
+  .mute-toggle {
+    bottom: 40px;
+    right: 15px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .photo-frame {
+    width: 120px;
+    height: 120px;
+  }
+
+  .chalkboard {
+    width: 80px;
+    height: 80px;
+    font-size: 48px;
+  }
+
+  .name-prompt {
+    width: 80%;
+    padding: 15px;
+  }
+
+  .name-prompt input {
+    width: 200px;
+  }
+
+  .name-prompt button {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+
+  .footer {
+    font-size: 12px;
+    padding: 10px;
+    width: 90%;
+  }
+
+  .mute-toggle {
+    bottom: 30px;
+    right: 10px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .photo-frame {
+    width: 100px;
+    height: 100px;
+  }
+
+  .chalkboard {
+    width: 60px;
+    height: 60px;
+    font-size: 36px;
+  }
+
+  .name-prompt {
+    width: 90%;
+    padding: 10px;
+  }
+
+  .name-prompt input {
+    width: 180px;
+  }
+
+  .name-prompt button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .footer {
+    font-size: 10px;
+    padding: 8px;
+    width: 95%;
+    bottom: 0;
+  }
+
+  .mute-toggle {
+    bottom: 20px;
+    right: 5px;
+    font-size: 12px;
+  }
+}
+
+/* Animations */
 @keyframes rotate-scale {
-  0% {
-    transform: rotate(0deg) scale(1);
+  from {
+    transform: scale(0) rotate(0deg);
   }
-  50% {
-    transform: rotate(180deg) scale(1.1);
-  }
-  100% {
-    transform: rotate(360deg) scale(1);
+  to {
+    transform: scale(1) rotate(360deg);
   }
 }
 
 @keyframes chalk-draw {
   0% {
-    transform: scale(1);
+    transform: translateY(0);
+    opacity: 1;
   }
   50% {
-    transform: scale(1.05);
+    transform: translateY(-10px);
+    opacity: 0.5;
   }
   100% {
-    transform: scale(1);
+    transform: translateY(0);
+    opacity: 1;
   }
 }
+
+
 </style>
