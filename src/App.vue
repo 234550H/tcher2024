@@ -133,12 +133,12 @@ Although we may not contact you and talk due to our busy schedules but we defini
 <p>See you around in the future when chance arises,meanwhile we will work hard to acheive and further in our own adventures! All the best!</p>
 <p>We will certaintly miss and remember you! Do not hestitate to contact us through our whatsapp! or even at least through our leader of our group - Qifang.</p>
 <br>
-<h5 style="text-align:left;">Yours Sincerely,</h5>
-<h5 style="text-align: left;">Qi Fang, Hui Xin , Renee , Yang Zhe , Ryan</h5>
-
 <span class="animated-special">Love you all ♡</span>
 <br>
+<h5 style="text-align:left;">Yours Sincerely,</h5>
+<h5 style="text-align: left;">Qi Fang, Hui Xin , Renee , Yang Zhe , Ryan</h5>
 <br>
+
         <button class="close-button"  @click="toggleAboutUs">X</button>
       </div>
     </div>
@@ -409,7 +409,7 @@ h1 {
 
 @media (max-width: 768px) {
   .close-button {
-    width: 40px; /* Increase size for mobile devices */
+    width: 30px; /* Increase size for mobile devices */
     height: 40px;
     font-size: 24px; /* Increase font size for better visibility */
 right: 10px;
