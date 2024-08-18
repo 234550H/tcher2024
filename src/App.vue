@@ -409,10 +409,10 @@ h1 {
 
 @media (max-width: 768px) {
   .close-button {
-    width: 20px; /* Increase size for mobile devices */
+    width: 35px; /* Increase size for mobile devices */
     height: 40px;
     font-size: 20px; /* Increase font size for better visibility */
-right: 10px;
+right: 5px;
 top:10px;
   }
 }
