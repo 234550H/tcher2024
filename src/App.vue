@@ -438,7 +438,7 @@ h1 {
 
   /* Position buttons relative to the screen width */
   .mute-toggle, .about-us-toggle {
-    width: calc(30% - 80px); /* Full width minus margin */
+    width: calc(60% - 80px); /* Full width minus margin */
     padding: 12px;
     font-size: 16px;
     position: fixed;
