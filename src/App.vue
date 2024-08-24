@@ -573,6 +573,23 @@ top:10px;
   }
 }
 
+/* Media Queries for Responsive Adjustments */
+@media (max-width: 600px) {
+  .media-player-container {
+    flex-direction: column; /* Stack items vertically on small screens */
+    align-items: flex-start; /* Align items to the start */
+    padding: 5px; /* Reduce padding */
+  }
+
+  .album-cover {
+    width: 100%; /* Full width for the album cover */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  .audio-player {
+    width: 100%; /* Full width for the audio player */
+  }
+}
 /* Responsive Adjustments */
 @media (max-width: 768px) {
 h1{
