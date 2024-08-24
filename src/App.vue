@@ -589,6 +589,12 @@ margin-top: 70px;
     max-width: 90%; /* Allow it to take up to 90% of the viewport */
   }
 
+.audio-player {
+  width: 280px; /* Set a fixed width for the audio player */
+  height: 50px; /* Set a fixed height for the audio player */
+  border-radius: 5px; /* Slightly rounded corners */
+}
+
   /* Position buttons relative to the screen width */
   .mute-toggle, .about-us-toggle {
     width: calc(35% - 80px); /* Full width minus margin */
