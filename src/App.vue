@@ -56,35 +56,33 @@ function toggleAboutUs() {
   aboutUsVisible.value = !aboutUsVisible.value
 }
 
-onMounted(() => {
-  audio = new Audio('../src/assets/lovestory.mp3')
-  audio.loop = true
-  audio.volume = 0.7
-})
+
 </script>
 
 <template>
   <div class="memory-background">
-    <h1 :class="{ 'hidden-title': showCover }">Teacher's Special Gift 2024</h1>
-    <div class="photo-frame-container" v-if="buttonVisible" @click="handleLogoClick">
-      <div class="photo-frame" :class="{ 'clicked': logoClicked }">
-        <div class="chalkboard">
-          <div class="chalk">
-            <span>⭐</span>
-          </div>
+  <video autoplay muted loop class="background-video">
+    <source src="./assets/tchsvid1.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <h1 :class="{ 'hidden-title': showCover }">Teacher's Special Gift 2024</h1>
+  <div class="photo-frame-container" v-if="buttonVisible" @click="handleLogoClick">
+    <div class="photo-frame" :class="{ 'clicked': logoClicked }">
+      <div class="chalkboard">
+        <div class="chalk">
+          <span>⭐</span>
         </div>
       </div>
     </div>
+  </div>
+
     <div v-if="namePromptVisible" class="name-prompt">
       <input v-model="userName" type="text" placeholder="Enter your name" />
       <p v-if="nameError" class="error-message">{{ nameError }}</p>
       <button @click="handleNameSubmit">Submit</button>
     </div>
     <PhotoLane v-if="showCover" :photoSet="userName" />
-    
-    <button class="mute-toggle" @click="toggleMute">
-      {{ isMuted ? 'Unmute' : 'Mute' }}
-    </button>
+  
     <button class="about-us-toggle" @click="toggleAboutUs">About Us</button>
     
     <!-- About Us Modal -->
@@ -143,10 +141,69 @@ Although we may not contact you and talk due to our busy schedules but we defini
       </div>
     </div>
   </div>
+
+
+    <!-- Styled Media Player -->
+    <div class="media-player-container">
+      <img src="../src/assets/images/profile/team.jpg" alt="Album Cover" class="album-cover" />
+      <div class="media-info">
+        <h3 class="media-title">Love Story</h3>
+        <audio controls loop class="audio-player">
+          <source src="../src/assets/lovestory.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    </div>
 </template>
+
 
 <style scoped>
 /* Global Styles */
+.media-player-container {
+  position: absolute; /* Position it on top of the video */
+  bottom: 20px; /* Adjust as necessary to position it above the bottom */
+  left: 20px; /* Adjust as necessary to position it from the left */
+  background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+  border-radius: 15px; /* Rounded corners */
+  padding: 10px; /* Padding inside the container */
+  display: flex;
+  align-items: center; /* Center align content vertically */
+  gap: 10px; /* Space between album cover and controls */
+  z-index: 10; /* Ensure it appears above the video */
+}
+
+.album-cover {
+  width: 120px; /* Set a fixed width for the album cover */
+  height: 120px; /* Set a fixed height for the album cover */
+  margin-right: 10px; /* Space between the album cover and buttons */
+  border-radius: 5px; /* Slightly rounded corners */
+  object-fit: cover; /* Ensure the image covers the area */
+}
+
+.audio-player {
+  width: 350px; /* Set a fixed width for the audio player */
+  height: 50px; /* Set a fixed height for the audio player */
+  border-radius: 5px; /* Slightly rounded corners */
+}
+
+.play-button,
+.pause-button {
+  background-color: #ff6347; /* Button background color */
+  color: white; /* Button text color */
+  border: none; /* No border */
+  border-radius: 8px; /* Rounded corners for buttons */
+  padding: 8px 12px; /* Padding for buttons */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.play-button:hover,
+.pause-button:hover {
+  background-color: #ff4500; /* Darker shade on hover */
+}
+
+
+
 /* Keyframes for color animation */
 @keyframes colorChange {
   0% {
@@ -198,7 +255,9 @@ Although we may not contact you and talk due to our busy schedules but we defini
   align-items: center;
   position: relative;
   overflow: hidden;
-  background-color: black;
+  background: url('./assets/tchsvid1.mp4');
+  background-size: auto;
+background-position: 0%;
 }
 
 /* Title Styling */
@@ -281,6 +340,7 @@ h1 {
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+z-index: 21;
 }
 
 .name-prompt input {
@@ -348,6 +408,7 @@ h1 {
   font-family: 'Dancing Script', cursive;
   font-size: 16px;
   transition: background-color 0.3s ease;
+  z-index: 1000;
 }
 
 .about-us-toggle:hover {
@@ -379,6 +440,7 @@ h1 {
   max-width: 600px;
   max-height: 90vh; /* Maximum height of the modal */
   overflow-y: auto; /* Enable vertical scrolling if needed */
+z-index: 23;
 }
 
 /* Close Button Styling */
@@ -406,6 +468,47 @@ h1 {
 .close-button:focus {
   outline: none;
 }
+
+.memory-background {
+  position: relative; /* Ensure child elements are positioned relative to this container */
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.background-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  min-width: 100%;
+  transform: translate(-50%, -50%);
+  z-index: 1; /* Lower z-index for the video */
+}
+
+h1 {
+  position: relative;
+  z-index: 2; /* Higher z-index for the title */
+  color: white; /* Change this to your desired color */
+  text-align: center; /* Center align the text */
+}
+
+.photo-frame-container {
+  position: relative;
+  z-index: 3; /* Higher z-index for the photo frame container */
+  display: flex;
+  justify-content: center; /* Center the photo frame */
+  align-items: center; /* Center the photo frame vertically */
+  height: 100%; /* Allow it to take the full height */
+}
+
+.chalk {
+  font-size: 50px; /* Adjust size as needed */
+  color: yellow; /* Change this color to your desired color */
+}
+
 
 @media (max-width: 768px) {
   .close-button {
@@ -472,6 +575,11 @@ top:10px;
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
+h1{
+color: #000;
+margin-top: 70px;
+
+}
 
   /* Position buttons relative to the screen width */
   .mute-toggle, .about-us-toggle {
@@ -488,7 +596,7 @@ top:10px;
   }
 
   .about-us-toggle {
-    bottom: 80px; /* Positioned above the mute-toggle */
+    bottom: 105px; /* Positioned above the mute-toggle */
   }
 
   .modal-content {
@@ -523,6 +631,7 @@ top:10px;
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-top: -20px;
   }
   
   .photo-frame {
@@ -533,6 +642,7 @@ top:10px;
   .chalkboard {
     font-size: 48px; /* Adjust font size for smaller screens */
   }
+
 }
 
 </style>

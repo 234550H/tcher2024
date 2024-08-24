@@ -178,6 +178,7 @@ function closeProfileMessage() {
   flex-direction: column;
   align-items: center;
   min-height: auto;
+z-index: 20;
 }
 
 .main-title {
@@ -280,7 +281,7 @@ font-weight: 600;
   border-radius: 16px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   max-width: 1200px;
-  margin: 70px auto 0; /* Adjust margin to provide space from the top */
+  margin: -130px auto 0; /* Adjust margin to provide space from the top */
   text-align: center;
   position: relative;
   display: flex;
