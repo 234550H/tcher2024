@@ -590,7 +590,7 @@ margin-top: 70px;
   }
 
 .audio-player {
-  width: 280px; /* Set a fixed width for the audio player */
+  width: 120px; /* Set a fixed width for the audio player */
   height: 50px; /* Set a fixed height for the audio player */
   border-radius: 5px; /* Slightly rounded corners */
 }
