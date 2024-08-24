@@ -2,7 +2,7 @@
 import { ref, onMounted } from 'vue'
 import confetti from 'canvas-confetti'
 import PhotoLane from './components/Photolane.vue'
-import '../src/assets/lovestory.mp3'
+import '../src/assets/enchanted.mp3'
 
 const showCover = ref(false)
 const logoClicked = ref(false)
@@ -145,11 +145,11 @@ Although we may not contact you and talk due to our busy schedules but we defini
 
     <!-- Styled Media Player -->
     <div class="media-player-container">
-      <img src="../src/assets/images/profile/team.jpg" alt="Album Cover" class="album-cover" />
+      <img src="../src/assets/images/album.jpg" alt="Album Cover" class="album-cover" />
       <div class="media-info">
-        <h3 class="media-title">Love Story</h3>
+        <h3 class="media-title">Enchanted</h3>
         <audio controls loop class="audio-player">
-          <source src="../src/assets/lovestory.mp3" type="audio/mpeg">
+          <source src="../src/assets/enchanted.mp3" type="audio/mpeg">
           Your browser does not support the audio element.
         </audio>
       </div>
