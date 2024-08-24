@@ -573,23 +573,6 @@ top:10px;
   }
 }
 
-/* Media Queries for Responsive Adjustments */
-@media (max-width: 600px) {
-  .media-player-container {
-    flex-direction: column; /* Stack items vertically on small screens */
-    align-items: flex-start; /* Align items to the start */
-    padding: 5px; /* Reduce padding */
-  }
-
-  .album-cover {
-    width: 100%; /* Full width for the album cover */
-    height: auto; /* Maintain aspect ratio */
-  }
-
-  .audio-player {
-    width: 100%; /* Full width for the audio player */
-  }
-}
 /* Responsive Adjustments */
 @media (max-width: 768px) {
 h1{
@@ -597,6 +580,14 @@ color: #000;
 margin-top: 70px;
 
 }
+ .media-player-container {
+    position: absolute; /* Position it on top of the video for larger screens */
+    bottom: 20px; /* Adjust as necessary to position it above the bottom */
+    left: 20px; /* Adjust as necessary to position it from the left */
+    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+    border-radius: 15px; /* Rounded corners */
+    max-width: 90%; /* Allow it to take up to 90% of the viewport */
+  }
 
   /* Position buttons relative to the screen width */
   .mute-toggle, .about-us-toggle {
